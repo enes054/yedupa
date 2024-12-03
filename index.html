@@ -3,37 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yedupa</title>
+    <title>Abonelik Takip</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Başlık -->
-    <header>
-        <h1>Yedupa'ya Hoş Geldiniz</h1>
-        <!-- Navigasyon -->
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Anasayfa</a></li>
-                <li><a href="#">Hakkında</a></li>
-                <li><a href="#">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <span>AbonelikTakip</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <div class="nav-icon"><i class="fas fa-home"></i></div>
+                            <span>Ana Sayfa</span>
+                            <div class="nav-indicator"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="nav-icon"><i class="fas fa-chart-pie"></i></div>
+                            <span>İstatistikler</span>
+                            <div class="nav-indicator"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="nav-icon"><i class="fas fa-calendar"></i></div>
+                            <span>Takvim</span>
+                            <div class="nav-indicator"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="nav-icon"><i class="fas fa-wallet"></i></div>
+                            <span>Bütçe</span>
+                            <div class="nav-indicator"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="nav-icon"><i class="fas fa-cog"></i></div>
+                            <span>Ayarlar</span>
+                            <div class="nav-indicator"></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
 
-    <!-- Ana İçerik -->
-    <main>
-        <section class="content">
-            <img src="https://via.placeholder.com/400x200" alt="Yedupa Görsel" class="feature-image">
-            <h2>Yedupa Hakkında</h2>
-            <p>Yedupa, modern ve yenilikçi çözümler sunan bir platformdur. Müşterilerimize en iyi hizmeti sunmak için sürekli kendimizi geliştiriyoruz. Kalite ve güven bizim için en önemli değerlerdir.</p>
-        </section>
-    </main>
+        <!-- Ana İçerik -->
+        <main class="main-content">
+            <!-- Ana Sayfa -->
+            <div class="content-section active" id="home-section">
+                <header>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Abonelik ara..." class="search-input">
+                        <div class="search-backdrop"></div>
+                    </div>
+                    <div class="user-menu">
+                        <button class="add-subscription"><i class="fas fa-plus"></i> Yeni Abonelik</button>
+                        <div class="profile-menu">
+                            <img src="https://via.placeholder.com/40" alt="Profil" class="profile-img">
+                            <div class="profile-dropdown">
+                                <a href="#"><i class="fas fa-user"></i> Profilim</a>
+                                <a href="#"><i class="fas fa-cog"></i> Ayarlar</a>
+                                <a href="#"><i class="fas fa-sign-out-alt"></i> Çıkış</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="dashboard">
+                    <!-- Özet Kartları -->
+                    <div class="summary-cards">
+                        <div class="card">
+                            <div class="card-gradient"></div>
+                            <div class="card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                            <div class="card-info">
+                                <h3>Aylık Toplam</h3>
+                                <p>₺349.90</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-gradient"></div>
+                            <div class="card-icon"><i class="fas fa-clock"></i></div>
+                            <div class="card-info">
+                                <h3>Aktif Abonelikler</h3>
+                                <p>8</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-gradient"></div>
+                            <div class="card-icon"><i class="fas fa-bell"></i></div>
+                            <div class="card-info">
+                                <h3>Yaklaşan Ödemeler</h3>
+                                <p>3</p>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Alt Bilgi -->
-    <footer>
-        <p>&copy; 2024 Yedupa. Tüm hakları saklıdır.</p>
-    </footer>
+                    <!-- Abonelik Listesi -->
+                    <div class="subscriptions-list">
+                        <div class="list-header">
+                            <h2>Aboneliklerim</h2>
+                            <div class="list-actions">
+                                <button class="view-toggle">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="subscription-filters">
+                            <button class="active">Tümü</button>
+                            <button>Eğlence</button>
+                            <button>Müzik</button>
+                            <button>Video</button>
+                            <button>İş</button>
+                            <button>Eğitim</button>
+                            <button>Spor</button>
+                            <button>Oyun</button>
+                            <button>Yazılım</button>
+                            <button>Depolama</button>
+                            <button>Haberler</button>
+                        </div>
+                        <div class="subscriptions">
+                            <!-- Abonelik kartları buraya dinamik olarak eklenecek -->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- İstatistikler Sayfası -->
+            <div class="content-section" id="statistics-section">
+                <header>
+                    <h1>İstatistikler</h1>
+                </header>
+                <div class="statistics-container">
+                    <div class="chart-container">
+                        <h3>Aylık Harcama Grafiği</h3>
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Kategori Dağılımı</h3>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="statistics-summary">
+                        <div class="stat-card">
+                            <h4>En Yüksek Harcama</h4>
+                            <p class="stat-value">Netflix - ₺89.90</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Ortalama Aylık</h4>
+                            <p class="stat-value">₺245.50</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Takvim Sayfası -->
+            <div class="content-section" id="calendar-section">
+                <header>
+                    <h1>Ödeme Takvimi</h1>
+                </header>
+                <div class="calendar-page-layout">
+                    <!-- Sol Taraf - Takvim Widget'ı -->
+                    <div class="calendar-widget">
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button class="prev-month"><i class="fas fa-chevron-left"></i></button>
+                                <h2 class="current-month">Mart 2024</h2>
+                                <button class="next-month"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="calendar-grid">
+                                <!-- Takvim JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="quick-action-btn add-payment-btn">
+                                <i class="fas fa-plus"></i>
+                                <span>Yeni Ödeme Ekle</span>
+                            </button>
+                            <button class="quick-action-btn set-reminder-btn">
+                                <i class="fas fa-bell"></i>
+                                <span>Hatırlatıcı Ayarla</span>
+                            </button>
+                        </div>
+                        <!-- Hatırlatıcı Listesi -->
+                        <div class="reminders-list">
+                            <div class="reminders-header">
+                                <h3>Hatırlatıcılar</h3>
+                                <button class="toggle-reminders">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <div class="reminders-content">
+                                <!-- JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Taraf - Detaylar ve İstatistikler -->
+                    <div class="calendar-details">
+                        <!-- Seçili Gün Detayları -->
+                        <div class="day-details">
+                            <div class="day-header">
+                                <h3>Seçili Gün: <span class="selected-date">-</span></h3>
+                                <div class="day-actions">
+                                    <button class="add-event-btn">
+                                        <i class="fas fa-plus"></i> Ödeme Ekle
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="day-events">
+                                <!-- JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+
+                        <!-- Yaklaşan Ödemeler Kartı -->
+                        <div class="calendar-events">
+                            <h3>Yaklaşan Ödemeler</h3>
+                            <div class="events-list">
+                                <!-- Ödemeler JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+
+                        <!-- Aylık Özet Kartı -->
+                        <div class="monthly-summary">
+                            <h3>Aylık Özet</h3>
+                            <div class="summary-grid">
+                                <div class="summary-item">
+                                    <span class="label">Toplam Ödeme</span>
+                                    <span class="value">₺1,245.70</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Ödemeler</span>
+                                    <span class="value">8 adet</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">En Yüksek</span>
+                                    <span class="value">₺349.90</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">Ortalama</span>
+                                    <span class="value">₺155.71</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kategori Dağılımı Kartı -->
+                        <div class="payment-distribution">
+                            <h3>Kategori Dağılımı</h3>
+                            <div class="distribution-chart">
+                                <canvas id="paymentDistributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bütçe Sayfası -->
+            <div class="content-section" id="budget-section">
+                <header>
+                    <h1>Bütçe Yönetimi</h1>
+                </header>
+                <div class="budget-container">
+                    <div class="budget-overview">
+                        <div class="budget-circle">
+                            <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    class="circle-bg"
+                                />
+                                <path d="M18 2.0845
+                                    a 15.9155 15.9155 0 0 1 0 31.831
+                                    a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    class="circle"
+                                />
+                                <text x="18" y="14" class="percentage">65%</text>
+                                <text x="18" y="22" class="text">Kullanıldı</text>
+                            </svg>
+                            <div class="budget-info">
+                                <div class="info-item">
+                                    <span class="label">Toplam Bütçe</span>
+                                    <span class="value">₺1000.00</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Kullanılan</span>
+                                    <span class="value">₺649.90</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Kalan</span>
+                                    <span class="value">₺350.10</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="budget-actions">
+                            <div class="budget-input">
+                                <input type="number" id="budget-limit" placeholder="Yeni bütçe limiti belirle">
+                                <button class="set-budget">
+                                    <i class="fas fa-check"></i>
+                                    <span>Güncelle</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="budget-details">
+                        <div class="details-header">
+                            <h3>Kategori Bazlı Harcamalar</h3>
+                            <select class="month-selector">
+                                <option value="current">Bu Ay</option>
+                                <option value="last">Geçen Ay</option>
+                                <option value="last3">Son 3 Ay</option>
+                            </select>
+                        </div>
+                        <div class="category-expenses">
+                            <!-- Kategori kartları JavaScript ile doldurulacak -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ayarlar Sayfası -->
+            <div class="content-section" id="settings-section">
+                <header>
+                    <h1>Ayarlar</h1>
+                </header>
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3>Genel Ayarlar</h3>
+                        <div class="setting-item">
+                            <label>Tema</label>
+                            <select id="theme-select">
+                                <option value="light">Açık Tema</option>
+                                <option value="dark">Koyu Tema</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Bildirimler</label>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3>Hesap Ayarları</h3>
+                        <div class="setting-item">
+                            <label>E-posta</label>
+                            <input type="email" value="kullanici@email.com">
+                        </div>
+                        <div class="setting-item">
+                            <label>Şifre Değiştir</label>
+                            <button class="change-password">Değiştir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
     <script src="script.js"></script>
+    <!-- Hatırlatıcı Modal -->
+    <div class="reminder-modal" id="reminderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Hatırlatıcı Ayarla</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form class="reminder-form">
+                <div class="form-group">
+                    <label>Abonelik</label>
+                    <select id="subscription-select" required>
+                        <!-- JavaScript ile doldurulacak -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Hatırlatma Zamanı</label>
+                    <select id="reminder-time" required>
+                        <option value="same-day">Aynı gün</option>
+                        <option value="1-day">1 gün önce</option>
+                        <option value="3-days">3 gün önce</option>
+                        <option value="1-week">1 hafta önce</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Bildirim Türü</label>
+                    <div class="notification-types">
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked name="notification-email">
+                            <span class="checkmark"></span>
+                            E-posta
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked name="notification-push">
+                            <span class="checkmark"></span>
+                            Tarayıcı Bildirimi
+                        </label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary cancel-reminder">İptal</button>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Gün Detay Modalı -->
+    <div class="day-detail-modal" id="dayDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Gün Detayları</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="day-detail-content">
+                <div class="date-info">
+                    <h3 class="detail-date">15 Mart 2024</h3>
+                    <span class="total-amount">Toplam: ₺349.90</span>
+                </div>
+                <div class="day-payments">
+                    <!-- JavaScript ile doldurulacak -->
+                </div>
+                <div class="day-actions">
+                    <button class="btn btn-secondary edit-payments">
+                        <i class="fas fa-edit"></i> Ödemeleri Düzenle
+                    </button>
+                    <button class="btn btn-primary add-payment">
+                        <i class="fas fa-plus"></i> Yeni Ödeme
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
