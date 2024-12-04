@@ -40,6 +40,8 @@ body {
 .container {
     display: flex;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 /* Sidebar Stili */
@@ -52,6 +54,7 @@ body {
     height: 100vh;
     backdrop-filter: blur(10px);
     box-shadow: var(--card-shadow);
+    z-index: 50;
 }
 
 .logo {
@@ -115,6 +118,7 @@ body {
     flex: 1;
     margin-left: var(--sidebar-width);
     padding: 2rem;
+    z-index: 1;
 }
 
 header {
@@ -122,6 +126,8 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    position: relative;
+    z-index: 100;
 }
 
 .search-bar {
@@ -399,7 +405,7 @@ header {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0);
-    z-index: 1000;
+    z-index: 2100;
     opacity: 0;
     transition: background 0.3s, opacity 0.3s;
     backdrop-filter: blur(0);
@@ -505,6 +511,7 @@ header {
 .profile-menu {
     position: relative;
     cursor: pointer;
+    z-index: 100;
 }
 
 .profile-img {
@@ -524,6 +531,7 @@ header {
     padding: 0.5rem;
     min-width: 200px;
     display: none;
+    z-index: 100;
 }
 
 .profile-menu:hover .profile-dropdown {
@@ -702,6 +710,7 @@ header {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    z-index: 1;
 }
 
 .calendar-events h3 {
@@ -1504,4 +1513,206 @@ input:checked + .slider:before {
     margin: 1.5rem 0;
     max-height: 400px;
     overflow-y: auto;
+}
+
+.notification-permission-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.notification-permission-btn:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.notification-permission-btn.permission-granted {
+    background: #10B981;
+}
+
+.notification-permission-btn.permission-denied {
+    background: #EF4444;
+}
+
+.notification-permission-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.export-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 1rem;
+}
+
+.export-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.3);
+}
+
+/* Auth Modal Stilleri */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    backdrop-filter: blur(8px);
+}
+
+.auth-modal.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.auth-modal .modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: auto;
+    position: relative;
+}
+
+.auth-modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Form stilleri */
+.auth-form {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.auth-form.active {
+    display: flex;
+}
+
+/* Scroll bar stilleri */
+.auth-form::-webkit-scrollbar {
+    width: 6px;
+}
+
+.auth-form::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.auth-form::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* Mobil için düzenlemeler */
+@media (max-height: 600px) {
+    .auth-modal {
+        align-items: flex-start;
+    }
+
+    .auth-modal .modal-content {
+        margin: 2rem auto;
+    }
+}
+
+/* Form grupları arası boşluk */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.btn-social:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.fa-spin {
+    animation: fa-spin 1s infinite linear;
+}
+
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0.5rem;
+}
+
+.profile-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+.profile-email {
+    display: block;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.profile-link, .settings-link, .sign-out-btn {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+
+.profile-link:hover, .settings-link:hover, .sign-out-btn:hover {
+    background-color: var(--background-color);
+    transform: translateX(5px);
+}
+
+.sign-out-btn {
+    color: #EF4444;
 } 
