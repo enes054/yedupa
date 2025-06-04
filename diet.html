@@ -15,27 +15,36 @@
         <h1>Diyet Takip Uygulaması</h1>
     </header>
 
-    <main class="main">
-        <section class="add-meal">
-            <h2>Öğün Ekle</h2>
-            <form id="mealForm">
-                <input type="text" id="mealName" placeholder="Yemek Adı" required>
-                <input type="number" id="mealAmount" placeholder="Miktar (g)" required>
-                <button type="submit">Ekle</button>
-            </form>
-        </section>
+    <nav class="tabs">
+        <button data-page="mealPage" class="active">Öğünler</button>
+        <button data-page="chartPage">Grafik</button>
+    </nav>
 
-        <section class="meal-list" id="mealList">
-            <h2>Günlük Öğünler</h2>
-            <ul class="meals"></ul>
-            <div class="totals">
-                <span id="totalCalories">0</span> Kalori
+    <main class="main">
+        <section id="mealPage" class="page active">
+            <div class="add-meal">
+                <h2>Öğün Ekle</h2>
+                <form id="mealForm">
+                    <input type="text" id="mealName" placeholder="Yemek Adı" required>
+                    <input type="number" id="mealAmount" placeholder="Miktar (g)" required>
+                    <button type="submit">Ekle</button>
+                </form>
+            </div>
+
+            <div class="meal-list" id="mealList">
+                <h2>Günlük Öğünler</h2>
+                <ul class="meals"></ul>
+                <div class="totals">
+                    <span id="totalCalories">0</span> Kalori
+                </div>
             </div>
         </section>
 
-        <section class="charts">
-            <h2>Haftalık Kalori Grafiği</h2>
-            <canvas id="calorieChart"></canvas>
+        <section id="chartPage" class="page">
+            <div class="charts">
+                <h2>Haftalık Kalori Grafiği</h2>
+                <canvas id="calorieChart"></canvas>
+            </div>
         </section>
     </main>
 

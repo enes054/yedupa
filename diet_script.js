@@ -11,6 +11,17 @@ const meals = [];
 const mealForm = document.getElementById('mealForm');
 const mealList = document.querySelector('.meals');
 const totalCaloriesEl = document.getElementById('totalCalories');
+const pages = document.querySelectorAll('.page');
+const tabButtons = document.querySelectorAll('.tabs button');
+
+tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        pages.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.page).classList.add('active');
+    });
+});
 
 mealForm.addEventListener('submit', (e) => {
     e.preventDefault();
