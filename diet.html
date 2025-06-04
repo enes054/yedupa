@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyet Takip Uygulaması</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="diet_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <img class="hero-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1350&q=80" alt="Sağlıklı Beslenme">
+        <h1>Diyet Takip Uygulaması</h1>
+    </header>
+
+    <main class="main">
+        <section class="add-meal">
+            <h2>Öğün Ekle</h2>
+            <form id="mealForm">
+                <input type="text" id="mealName" placeholder="Öğün Adı" required>
+                <input type="number" id="mealCalories" placeholder="Kalori" required>
+                <input type="number" id="mealProtein" placeholder="Protein (g)" required>
+                <input type="number" id="mealCarbs" placeholder="Karbonhidrat (g)" required>
+                <input type="number" id="mealFat" placeholder="Yağ (g)" required>
+                <button type="submit">Ekle</button>
+            </form>
+        </section>
+
+        <section class="meal-list" id="mealList">
+            <h2>Günlük Öğünler</h2>
+            <ul class="meals"></ul>
+            <div class="totals">
+                <span id="totalCalories">0</span> Kalori
+            </div>
+        </section>
+
+        <section class="charts">
+            <h2>Haftalık Kalori Grafiği</h2>
+            <canvas id="calorieChart"></canvas>
+        </section>
+    </main>
+
+    <script src="diet_script.js"></script>
+</body>
+</html>

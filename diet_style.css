@@ -1,0 +1,90 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.add-meal form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-meal input {
+    padding: 10px;
+    flex: 1 1 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-meal button {
+    padding: 10px 20px;
+    background-color: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.meal-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.meal-item {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.meal-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.totals {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.charts {
+    margin-top: 40px;
+}
