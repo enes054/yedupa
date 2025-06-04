@@ -1,3 +1,11 @@
+const foodData = {
+    "elma": { calories: 52, protein: 0.3, carbs: 14, fat: 0.2 },
+    "yumurta": { calories: 155, protein: 13, carbs: 1.1, fat: 11 },
+    "tavuk": { calories: 165, protein: 31, carbs: 0, fat: 4 },
+    "pirinç": { calories: 130, protein: 2.7, carbs: 28, fat: 0.3 },
+    "makarna": { calories: 131, protein: 5, carbs: 25, fat: 1.1 }
+};
+
 const meals = [];
 
 const mealForm = document.getElementById('mealForm');
@@ -6,13 +14,26 @@ const totalCaloriesEl = document.getElementById('totalCalories');
 
 mealForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = document.getElementById('mealName').value;
-    const calories = parseInt(document.getElementById('mealCalories').value, 10);
-    const protein = parseInt(document.getElementById('mealProtein').value, 10);
-    const carbs = parseInt(document.getElementById('mealCarbs').value, 10);
-    const fat = parseInt(document.getElementById('mealFat').value, 10);
+    const nameInput = document.getElementById('mealName');
+    const amountInput = document.getElementById('mealAmount');
+    const name = nameInput.value.trim().toLowerCase();
+    const amount = parseInt(amountInput.value, 10);
 
-    const meal = { name, calories, protein, carbs, fat };
+    if (!foodData[name]) {
+        alert('Bu yiyecek veri tabanında bulunamadı.');
+        return;
+    }
+
+    const info = foodData[name];
+    const ratio = amount / 100;
+    const meal = {
+        name: nameInput.value.trim(),
+        calories: Math.round(info.calories * ratio),
+        protein: +(info.protein * ratio).toFixed(1),
+        carbs: +(info.carbs * ratio).toFixed(1),
+        fat: +(info.fat * ratio).toFixed(1)
+    };
+
     meals.push(meal);
     renderMeals();
     mealForm.reset();
