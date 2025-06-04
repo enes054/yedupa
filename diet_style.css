@@ -1,0 +1,169 @@
+:root {
+    --primary: #4f46e5;
+    --bg: #f5f5f5;
+    --card-bg: #ffffff;
+    --text: #333;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+}
+
+.header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: -25px auto 20px;
+}
+
+.tabs button {
+    background: var(--card-bg);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tabs button.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+.page {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.add-meal form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-meal input {
+    padding: 10px;
+    flex: 1 1 150px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.add-meal input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.add-meal button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.add-meal button:hover {
+    background-color: #4338ca;
+}
+
+.meal-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.meal-item {
+    background-color: var(--card-bg);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.meal-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.meal-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.totals {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.charts {
+    margin-top: 40px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
